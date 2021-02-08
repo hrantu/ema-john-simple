@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const cart = props.cart;
@@ -23,12 +24,16 @@ const Cart = (props) => {
     const tax = Math.floor(total/10);
     return (
         <div>
-          <h4>Order Summary</h4>
+          <h4 className="bg-success">Order Summary</h4>
           <p>Items ordered: {cart.length}</p>
           <p>Product Price: {total}</p>
           <p><small>Shipping Cost: {shipping}</small></p>
           <p><small>Tax: {tax}</small></p>
-          <p>Total Price: {total + shipping + tax}</p>  
+          <p>Total Price: {total + shipping + tax}</p>
+          <br/>
+          <Link to="/review">
+            <button className='main-button'>Review Order</button>
+          </Link>
         </div>
     );
 };
